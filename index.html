@@ -276,7 +276,127 @@
         <section id="store" class="section">
           <h2 class="section_title">Print Store</h2>
           <div class="section_desc">Bring gallery-quality prints into your home.</div>
-          <!-- Store UI will go here -->
+          <div class="store_grid">
+            <!-- Product 1 -->
+            <div class="store_card" data-img="gallery_nature.png" data-title="Misty Mountains Print">
+              <div class="store_img">
+                <img src="gallery_nature.png" alt="Misty Mountains Print">
+              </div>
+              <div class="store_info">
+                <h3>Misty Mountains Print</h3>
+                <p class="store_price">$45.00</p>
+                <div class="store_options">
+                  <div class="option_group">
+                    <label>Size</label>
+                    <select class="print_size">
+                      <option value="8x10" data-price="45.00">8" x 10" ($45.00)</option>
+                      <option value="11x14" data-price="65.00">11" x 14" ($65.00)</option>
+                      <option value="16x20" data-price="95.00">16" x 20" ($95.00)</option>
+                    </select>
+                  </div>
+                  <div class="option_group">
+                    <label>Finish</label>
+                    <select class="print_finish">
+                      <option value="lustre">Lustre Paper</option>
+                      <option value="glossy">Glossy Paper</option>
+                      <option value="matte">Matte Fine Art</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="store_btn_buy">Buy Print</button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="store_card" data-img="gallery_portrait.png" data-title="Golden Hour Portrait Print">
+              <div class="store_img">
+                <img src="gallery_portrait.png" alt="Golden Hour Portrait Print">
+              </div>
+              <div class="store_info">
+                <h3>Golden Hour Portrait Print</h3>
+                <p class="store_price">$45.00</p>
+                <div class="store_options">
+                  <div class="option_group">
+                    <label>Size</label>
+                    <select class="print_size">
+                      <option value="8x10" data-price="45.00">8" x 10" ($45.00)</option>
+                      <option value="11x14" data-price="65.00">11" x 14" ($65.00)</option>
+                      <option value="16x20" data-price="95.00">16" x 20" ($95.00)</option>
+                    </select>
+                  </div>
+                  <div class="option_group">
+                    <label>Finish</label>
+                    <select class="print_finish">
+                      <option value="lustre">Lustre Paper</option>
+                      <option value="glossy">Glossy Paper</option>
+                      <option value="matte">Matte Fine Art</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="store_btn_buy">Buy Print</button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="store_card" data-img="gallery_street.png" data-title="Neon Shadows Print">
+              <div class="store_img">
+                <img src="gallery_street.png" alt="Neon Shadows Print">
+              </div>
+              <div class="store_info">
+                <h3>Neon Shadows Print</h3>
+                <p class="store_price">$45.00</p>
+                <div class="store_options">
+                  <div class="option_group">
+                    <label>Size</label>
+                    <select class="print_size">
+                      <option value="8x10" data-price="45.00">8" x 10" ($45.00)</option>
+                      <option value="11x14" data-price="65.00">11" x 14" ($65.00)</option>
+                      <option value="16x20" data-price="95.00">16" x 20" ($95.00)</option>
+                    </select>
+                  </div>
+                  <div class="option_group">
+                    <label>Finish</label>
+                    <select class="print_finish">
+                      <option value="lustre">Lustre Paper</option>
+                      <option value="glossy">Glossy Paper</option>
+                      <option value="matte">Matte Fine Art</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="store_btn_buy">Buy Print</button>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="store_card" data-img="gallery_architecture.png" data-title="Concrete Symmetry Print">
+              <div class="store_img">
+                <img src="gallery_architecture.png" alt="Concrete Symmetry Print">
+              </div>
+              <div class="store_info">
+                <h3>Concrete Symmetry Print</h3>
+                <p class="store_price">$45.00</p>
+                <div class="store_options">
+                  <div class="option_group">
+                    <label>Size</label>
+                    <select class="print_size">
+                      <option value="8x10" data-price="45.00">8" x 10" ($45.00)</option>
+                      <option value="11x14" data-price="65.00">11" x 14" ($65.00)</option>
+                      <option value="16x20" data-price="95.00">16" x 20" ($95.00)</option>
+                    </select>
+                  </div>
+                  <div class="option_group">
+                    <label>Finish</label>
+                    <select class="print_finish">
+                      <option value="lustre">Lustre Paper</option>
+                      <option value="glossy">Glossy Paper</option>
+                      <option value="matte">Matte Fine Art</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="store_btn_buy">Buy Print</button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Section: Contact -->
@@ -304,6 +424,43 @@
       <div class="lightbox_content">
         <img id="lightbox_img" src="" alt="">
         <div id="lightbox_caption">Caption</div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout_modal" class="checkout_modal">
+      <div class="checkout_content">
+        <span class="checkout_close"><i class="fa-solid fa-xmark"></i></span>
+        <h2>Order Your Print</h2>
+        <div class="checkout_summary">
+          <img id="checkout_summary_img" src="" alt="">
+          <div class="checkout_summary_details">
+            <h3 id="checkout_summary_title">Print Title</h3>
+            <p>Size: <span id="checkout_summary_size">8x10</span></p>
+            <p>Finish: <span id="checkout_summary_finish">Lustre</span></p>
+            <p class="checkout_summary_price">Total: <span id="checkout_summary_total">$45.00</span></p>
+          </div>
+        </div>
+        <form id="checkout_form" class="checkout_form">
+          <div class="form_group">
+            <label for="shipping_name">Full Name</label>
+            <input type="text" id="shipping_name" required>
+          </div>
+          <div class="form_group">
+            <label for="shipping_email">Email Address</label>
+            <input type="email" id="shipping_email" required>
+          </div>
+          <div class="form_group">
+            <label for="shipping_address">Shipping Address</label>
+            <textarea id="shipping_address" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="checkout_submit_btn">Confirm Simulated Order</button>
+        </form>
+        <div id="checkout_success" class="checkout_success">
+          <div class="success_icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Thank you for your order!</h3>
+          <p>This is a simulated transaction. Your order request was captured successfully.</p>
+        </div>
       </div>
     </div>
 

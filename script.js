@@ -137,4 +137,78 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') showPrev();
         if (e.key === 'Escape') closeLightbox();
     });
+    // --- Print Store & Checkout Simulation ---
+    const storeCards = document.querySelectorAll('.store_card');
+    const checkoutModal = document.getElementById('checkout_modal');
+    const checkoutClose = document.querySelector('.checkout_close');
+    const checkoutForm = document.getElementById('checkout_form');
+    const checkoutSuccess = document.getElementById('checkout_success');
+
+    // Dynamic price updating based on size selection
+    storeCards.forEach(card => {
+        const sizeSelect = card.querySelector('.print_size');
+        const priceDisplay = card.querySelector('.store_price');
+
+        if (sizeSelect && priceDisplay) {
+            sizeSelect.addEventListener('change', () => {
+                const selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+                const price = selectedOption.getAttribute('data-price');
+                priceDisplay.textContent = `$${price}`;
+            });
+        }
+
+        // Open checkout modal on "Buy Print" click
+        const buyBtn = card.querySelector('.store_btn_buy');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', () => {
+                const img = card.getAttribute('data-img');
+                const title = card.getAttribute('data-title');
+                const size = sizeSelect.value;
+                const finish = card.querySelector('.print_finish').value;
+                const price = priceDisplay.textContent;
+
+                // Set modal summary data
+                document.getElementById('checkout_summary_img').src = img;
+                document.getElementById('checkout_summary_title').textContent = title;
+                document.getElementById('checkout_summary_size').textContent = size;
+                document.getElementById('checkout_summary_finish').textContent = finish.charAt(0).toUpperCase() + finish.slice(1);
+                document.getElementById('checkout_summary_total').textContent = price;
+
+                // Reset form state
+                checkoutForm.reset();
+                checkoutForm.classList.remove('hide');
+                checkoutSuccess.classList.remove('show');
+
+                // Show modal
+                checkoutModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+    });
+
+    // Close checkout modal
+    const closeCheckout = () => {
+        checkoutModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    };
+
+    if (checkoutClose) {
+        checkoutClose.addEventListener('click', closeCheckout);
+    }
+    if (checkoutModal) {
+        checkoutModal.addEventListener('click', (e) => {
+            if (e.target === checkoutModal) {
+                closeCheckout();
+            }
+        });
+    }
+
+    // Submit checkout form simulation
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            checkoutForm.classList.add('hide');
+            checkoutSuccess.classList.add('show');
+        });
+    }
 });
