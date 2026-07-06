@@ -387,6 +387,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Services "Book Now" Button Linker ---
+    const serviceButtons = document.querySelectorAll('.service_card .service_btn');
+    const bookingTypeSelect = document.getElementById('booking_type');
+
+    serviceButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.service_card');
+            const serviceName = card.querySelector('h3').textContent.trim();
+
+            if (bookingTypeSelect) {
+                if (serviceName.includes('Portrait')) {
+                    bookingTypeSelect.value = 'portrait';
+                } else if (serviceName.includes('Wedding')) {
+                    bookingTypeSelect.value = 'wedding';
+                } else if (serviceName.includes('Commercial')) {
+                    bookingTypeSelect.value = 'commercial';
+                }
+            }
+        });
+    });
+
     // Initial Load
     loadReviews();
 });
