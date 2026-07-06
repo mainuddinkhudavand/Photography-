@@ -1692,3 +1692,98 @@ html {
 .exhibit_modal_item:hover img {
     transform: scale(1.05);
 }
+
+/* --- Admin Management Section --- */
+.admin_container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.admin_panel_card {
+    flex: 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: var(--shadow-premium);
+}
+
+.admin_panel_card h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+.admin_panel_card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin_panel_card select {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition-smooth);
+    width: 100%;
+    cursor: pointer;
+}
+
+.admin_panel_card select:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.admin_panel_card select option {
+    background: var(--bg-darker);
+    color: var(--text-main);
+}
+
+.admin_submit_btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-color);
+    color: var(--bg-darker);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+}
+
+.admin_submit_btn:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.admin_success_msg {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    color: #2ecc71;
+    font-size: 13px;
+    margin-top: 15px;
+    animation: fadeIn 0.4s ease;
+}
+
+.admin_success_msg.show {
+    display: flex;
+}
+
+@media (max-width: 992px) {
+    .admin_container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}

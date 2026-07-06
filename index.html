@@ -506,6 +506,73 @@
           </div>
         </section>
 
+        <!-- Section: Admin Management -->
+        <section id="admin" class="section">
+          <h2 class="section_title">Manage Site</h2>
+          <div class="section_desc">Dynamically create and manage your portfolio content (Saved in LocalStorage).</div>
+          <div class="admin_container">
+            <!-- Add Photo Form -->
+            <div class="admin_panel_card">
+              <h3>Create New Photo Entry</h3>
+              <form id="admin_photo_form">
+                <div class="form_group">
+                  <label for="admin_photo_title">Photo Title</label>
+                  <input type="text" id="admin_photo_title" required placeholder="e.g. Autumn Whispers">
+                </div>
+                <div class="form_row">
+                  <div class="form_group">
+                    <label for="admin_photo_category">Category</label>
+                    <select id="admin_photo_category" required>
+                      <option value="nature">Nature</option>
+                      <option value="portrait">Portrait</option>
+                      <option value="street">Street</option>
+                      <option value="architecture">Architecture</option>
+                    </select>
+                  </div>
+                  <div class="form_group">
+                    <label for="admin_photo_preset">Image Asset</label>
+                    <select id="admin_photo_preset" required>
+                      <option value="gallery_nature.png">Misty Mountains Asset</option>
+                      <option value="gallery_portrait.png">Golden Portrait Asset</option>
+                      <option value="gallery_street.png">Neon Street Asset</option>
+                      <option value="gallery_architecture.png">Concrete Symmetry Asset</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="admin_submit_btn">Add to Gallery</button>
+              </form>
+              <div id="admin_photo_success" class="admin_success_msg"><i class="fa-solid fa-circle-check"></i> Photo added to gallery successfully!</div>
+            </div>
+
+            <!-- Add Exhibit Form -->
+            <div class="admin_panel_card">
+              <h3>Create New Exhibition Card</h3>
+              <form id="admin_exhibit_form">
+                <div class="form_group">
+                  <label for="admin_exhibit_title">Exhibition Title</label>
+                  <input type="text" id="admin_exhibit_title" required placeholder="e.g. Urban Silence">
+                </div>
+                <div class="form_row">
+                  <div class="form_group">
+                    <label for="admin_exhibit_date">Exhibition Date / Duration</label>
+                    <input type="text" id="admin_exhibit_date" required placeholder="e.g. Jan 10 - Feb 5, 2027">
+                  </div>
+                  <div class="form_group">
+                    <label for="admin_exhibit_loc">Location</label>
+                    <input type="text" id="admin_exhibit_loc" required placeholder="e.g. Arts District, LA">
+                  </div>
+                </div>
+                <div class="form_group">
+                  <label for="admin_exhibit_desc">Description</label>
+                  <textarea id="admin_exhibit_desc" rows="3" required placeholder="Short summary of the exhibit theme..."></textarea>
+                </div>
+                <button type="submit" class="admin_submit_btn">Add Exhibition</button>
+              </form>
+              <div id="admin_exhibit_success" class="admin_success_msg"><i class="fa-solid fa-circle-check"></i> Exhibition card created successfully!</div>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
 
