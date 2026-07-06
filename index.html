@@ -102,7 +102,51 @@
         <section id="gallery" class="section">
           <h2 class="section_title">Gallery</h2>
           <div class="section_desc">A curated collection of captured moments.</div>
-          <!-- Gallery UI will go here -->
+          <div class="gallery_filters">
+            <button class="filter_btn active" data-filter="all">All</button>
+            <button class="filter_btn" data-filter="nature">Nature</button>
+            <button class="filter_btn" data-filter="portrait">Portraits</button>
+            <button class="filter_btn" data-filter="street">Street</button>
+            <button class="filter_btn" data-filter="architecture">Architecture</button>
+          </div>
+
+          <div class="gallery_grid">
+            <!-- Item 1 -->
+            <div class="gallery_item" data-category="nature">
+              <img src="gallery_nature.png" alt="Misty Forest Mountains">
+              <div class="gallery_overlay">
+                <h3>Misty Mountains</h3>
+                <span class="category_tag">Nature</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery_item" data-category="portrait">
+              <img src="gallery_portrait.png" alt="Studio Portrait Portrait">
+              <div class="gallery_overlay">
+                <h3>Golden Hour Portrait</h3>
+                <span class="category_tag">Portrait</span>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery_item" data-category="street">
+              <img src="gallery_street.png" alt="Tokyo Neon Street">
+              <div class="gallery_overlay">
+                <h3>Neon Shadows</h3>
+                <span class="category_tag">Street</span>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery_item" data-category="architecture">
+              <img src="gallery_architecture.png" alt="Minimalist Modern Architecture">
+              <div class="gallery_overlay">
+                <h3>Concrete Symmetry</h3>
+                <span class="category_tag">Architecture</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Section: Services -->
@@ -149,6 +193,18 @@
 
       </div>
     </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox_modal">
+      <span class="lightbox_close"><i class="fa-solid fa-xmark"></i></span>
+      <span class="lightbox_prev"><i class="fa-solid fa-chevron-left"></i></span>
+      <span class="lightbox_next"><i class="fa-solid fa-chevron-right"></i></span>
+      <div class="lightbox_content">
+        <img id="lightbox_img" src="" alt="">
+        <div id="lightbox_caption">Caption</div>
+      </div>
+    </div>
+
   </body>
   <script src="script.js"></script>
 </html>
