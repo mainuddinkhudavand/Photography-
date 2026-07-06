@@ -210,5 +210,183 @@ document.addEventListener('DOMContentLoaded', () => {
             checkoutForm.classList.add('hide');
             checkoutSuccess.classList.add('show');
         });
+    // --- Booking Form Submission ---
+    const bookingForm = document.getElementById('booking_form');
+    const bookingSuccessAlert = document.getElementById('booking_success_alert');
+    const bookingDateInput = document.getElementById('booking_date');
+
+    // Prevent past dates in date picker
+    if (bookingDateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        bookingDateInput.min = today;
     }
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            bookingForm.classList.add('hide');
+            bookingSuccessAlert.classList.add('show');
+        });
+    }
+
+    // --- Star Rating Input ---
+    const starInputContainer = document.querySelector('.star_rating_input');
+    let selectedRating = 5;
+
+    if (starInputContainer) {
+        const stars = starInputContainer.querySelectorAll('i');
+        
+        // Highlight stars up to selected value
+        const highlightStars = (rating) => {
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('fa-regular');
+                    star.classList.add('fa-solid', 'selected');
+                } else {
+                    star.classList.remove('fa-solid', 'selected');
+                    star.classList.add('fa-regular');
+                }
+            });
+        };
+
+        // Initialize with default 5 stars selected
+        highlightStars(selectedRating);
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-rating'));
+                highlightStars(selectedRating);
+            });
+
+            star.addEventListener('mouseenter', () => {
+                const hoverRating = parseInt(star.getAttribute('data-rating'));
+                highlightStars(hoverRating);
+            });
+        });
+
+        starInputContainer.addEventListener('mouseleave', () => {
+            highlightStars(selectedRating);
+        });
+    }
+
+    // --- LocalStorage Guestbook Reviews ---
+    const feedbackForm = document.getElementById('feedback_form');
+    const reviewsListContainer = document.getElementById('reviews_list');
+
+    const defaultReviews = [
+        {
+            name: "Emily Jenkins",
+            rating: 5,
+            comment: "Absolutely in love with our wedding photoshoot. Mainu has an incredible eye for capturing raw emotions and perfect lighting. Highly recommend!",
+            date: "June 15, 2026"
+        },
+        {
+            name: "Marcus Vance",
+            rating: 5,
+            comment: "Great experience working together on our product launch photography. Professional, fast turnaround, and stunning results that elevated our brand.",
+            date: "May 28, 2026"
+        },
+        {
+            name: "Sarah Lin",
+            rating: 4,
+            comment: "Loved the portrait session! The lighting was gorgeous, and she made me feel super comfortable in front of the camera. Will book again.",
+            date: "May 10, 2026"
+        }
+    ];
+
+    // Load and Render Reviews
+    const loadReviews = () => {
+        if (!reviewsListContainer) return;
+        
+        let storedReviews = localStorage.getItem('photography_reviews');
+        let reviews = [];
+
+        if (storedReviews) {
+            reviews = JSON.parse(storedReviews);
+        } else {
+            // Setup default reviews on first load
+            reviews = defaultReviews;
+            localStorage.setItem('photography_reviews', JSON.stringify(reviews));
+        }
+
+        reviewsListContainer.innerHTML = '';
+
+        // Render reviews in reverse chronological order (newest first)
+        reviews.forEach(review => {
+            const card = document.createElement('div');
+            card.className = 'review_card';
+
+            // Star icons generation
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= review.rating) {
+                    starsHTML += '<i class="fa-solid fa-star"></i> ';
+                } else {
+                    starsHTML += '<i class="fa-regular fa-star"></i> ';
+                }
+            }
+
+            card.innerHTML = `
+                <div class="review_header">
+                    <h4>${escapeHTML(review.name)}</h4>
+                    <div class="review_stars">${starsHTML}</div>
+                </div>
+                <div class="review_date">${review.date}</div>
+                <div class="review_text">${escapeHTML(review.comment)}</div>
+            `;
+
+            reviewsListContainer.appendChild(card);
+        });
+    };
+
+    // Helper to escape HTML tags to prevent XSS
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    // Submit new review
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('reviewer_name');
+            const commentInput = document.getElementById('reviewer_comment');
+
+            const newReview = {
+                name: nameInput.value,
+                rating: selectedRating,
+                comment: commentInput.value,
+                date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+            };
+
+            let storedReviews = JSON.parse(localStorage.getItem('photography_reviews')) || defaultReviews;
+            storedReviews.unshift(newReview); // Add to the top of the list
+            localStorage.setItem('photography_reviews', JSON.stringify(storedReviews));
+
+            // Reload reviews list
+            loadReviews();
+
+            // Reset form
+            feedbackForm.reset();
+            selectedRating = 5;
+            if (starInputContainer) {
+                const stars = starInputContainer.querySelectorAll('i');
+                stars.forEach(star => {
+                    star.classList.remove('fa-regular');
+                    star.classList.add('fa-solid', 'selected');
+                });
+            }
+        });
+    }
+
+    // Initial Load
+    loadReviews();
 });

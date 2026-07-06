@@ -1285,3 +1285,302 @@ html {
     font-size: 14px;
     color: var(--text-muted);
 }
+
+/* --- Contact & Booking Section --- */
+.contact_container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.contact_info_box {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info_item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-premium);
+}
+
+.info_item i {
+    font-size: 24px;
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info_item h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 2px;
+}
+
+.info_item p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.contact_form_element {
+    width: 65%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: var(--shadow-premium);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: var(--transition-smooth);
+}
+
+.contact_form_element.hide {
+    display: none;
+}
+
+.form_row {
+    display: flex;
+    gap: 20px;
+}
+
+.form_row .form_group {
+    flex: 1;
+}
+
+.contact_form_element select {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition-smooth);
+    width: 100%;
+    cursor: pointer;
+}
+
+.contact_form_element select:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.contact_form_element select option {
+    background: var(--bg-darker);
+    color: var(--text-main);
+}
+
+.booking_success_alert {
+    display: none;
+    width: 65%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 50px 40px;
+    box-shadow: var(--shadow-premium);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    animation: fadeIn 0.5s ease;
+}
+
+.booking_success_alert.show {
+    display: flex;
+}
+
+.booking_success_alert i {
+    font-size: 54px;
+    color: #2ecc71;
+}
+
+.booking_success_alert h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.booking_success_alert p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* --- Feedback Section --- */
+.feedback_container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.feedback_submit_panel {
+    width: 40%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-premium);
+    height: fit-content;
+}
+
+.feedback_submit_panel h3, .reviews_list_panel h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+/* Star Rating Input */
+.star_rating_input {
+    display: flex;
+    gap: 8px;
+    font-size: 24px;
+    color: var(--text-muted);
+    margin: 5px 0;
+}
+
+.star_rating_input i {
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.star_rating_input i:hover, .star_rating_input i.selected {
+    color: var(--accent-color);
+}
+
+.feedback_submit_btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-color);
+    color: var(--bg-darker);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+}
+
+.feedback_submit_btn:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.reviews_list_panel {
+    width: 60%;
+}
+
+.reviews_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom Scrollbar for Reviews List */
+.reviews_list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reviews_list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.reviews_list::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 3px;
+}
+
+.reviews_list::-webkit-scrollbar-thumb:hover {
+    background: var(--glass-hover);
+}
+
+.review_card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-premium);
+    animation: slideInUp 0.4s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.review_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.review_header h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.review_stars {
+    color: var(--accent-color);
+    font-size: 13px;
+}
+
+.review_date {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.review_text {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Contact & Feedback Responsiveness */
+@media (max-width: 992px) {
+    .contact_container, .feedback_container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contact_info_box, .contact_form_element, .booking_success_alert,
+    .feedback_submit_panel, .reviews_list_panel {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form_row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

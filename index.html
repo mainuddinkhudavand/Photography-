@@ -403,14 +403,107 @@
         <section id="contact" class="section">
           <h2 class="section_title">Contact & Booking</h2>
           <div class="section_desc">Let's collaborate on your next project.</div>
-          <!-- Contact UI will go here -->
+          <div class="contact_container">
+            <div class="contact_info_box">
+              <div class="info_item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>info@mainuphotography.com</p>
+                </div>
+              </div>
+              <div class="info_item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="info_item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <h4>Studio</h4>
+                  <p>Brooklyn, New York, NY</p>
+                </div>
+              </div>
+            </div>
+            <form id="booking_form" class="contact_form_element">
+              <div class="form_row">
+                <div class="form_group">
+                  <label for="booking_name">Name</label>
+                  <input type="text" id="booking_name" required placeholder="Your full name">
+                </div>
+                <div class="form_group">
+                  <label for="booking_email">Email</label>
+                  <input type="email" id="booking_email" required placeholder="Your email address">
+                </div>
+              </div>
+              <div class="form_row">
+                <div class="form_group">
+                  <label for="booking_type">Shoot Type</label>
+                  <select id="booking_type" required>
+                    <option value="" disabled selected>Select shoot type...</option>
+                    <option value="portrait">Portrait Session</option>
+                    <option value="wedding">Wedding / Event</option>
+                    <option value="commercial">Commercial / Product</option>
+                    <option value="other">Other / Custom</option>
+                  </select>
+                </div>
+                <div class="form_group">
+                  <label for="booking_date">Preferred Date</label>
+                  <input type="date" id="booking_date" required>
+                </div>
+              </div>
+              <div class="form_group">
+                <label for="booking_message">Project Details</label>
+                <textarea id="booking_message" rows="4" placeholder="Tell us details about the shoot (location ideas, vibe, duration...)" required></textarea>
+              </div>
+              <button type="submit" class="contact_submit_btn">Send Booking Request</button>
+            </form>
+            <div id="booking_success_alert" class="booking_success_alert">
+              <i class="fa-solid fa-circle-check"></i>
+              <h3>Booking Request Sent!</h3>
+              <p>Thank you for reaching out. We will get back to you within 24 hours to confirm details.</p>
+            </div>
+          </div>
         </section>
 
         <!-- Section: Feedback -->
         <section id="feedback" class="section">
           <h2 class="section_title">Feedback Guestbook</h2>
           <div class="section_desc">Read thoughts from clients or share your own experience.</div>
-          <!-- Feedback UI will go here -->
+          <div class="feedback_container">
+            <div class="feedback_submit_panel">
+              <h3>Leave a Review</h3>
+              <form id="feedback_form">
+                <div class="form_group">
+                  <label for="reviewer_name">Name</label>
+                  <input type="text" id="reviewer_name" required placeholder="Your name">
+                </div>
+                <div class="form_group">
+                  <label>Rating</label>
+                  <div class="star_rating_input">
+                    <i class="fa-star fa-regular" data-rating="1"></i>
+                    <i class="fa-star fa-regular" data-rating="2"></i>
+                    <i class="fa-star fa-regular" data-rating="3"></i>
+                    <i class="fa-star fa-regular" data-rating="4"></i>
+                    <i class="fa-star fa-regular" data-rating="5"></i>
+                  </div>
+                </div>
+                <div class="form_group">
+                  <label for="reviewer_comment">Your Review</label>
+                  <textarea id="reviewer_comment" rows="3" required placeholder="How was your experience working with us?"></textarea>
+                </div>
+                <button type="submit" class="feedback_submit_btn">Post Review</button>
+              </form>
+            </div>
+            <div class="reviews_list_panel">
+              <h3>Guestbook Reviews</h3>
+              <div id="reviews_list" class="reviews_list">
+                <!-- Dynamic reviews will be loaded here -->
+              </div>
+            </div>
+          </div>
         </section>
 
       </div>
