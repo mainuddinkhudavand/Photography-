@@ -21,6 +21,7 @@
   <body>
     <div class="main_box">
       <input type="checkbox" id="check" />
+      <label for="check" class="menu_overlay"></label>
       <div class="btn_one">
         <label for="check" >
           <i class="fa-solid fa-bars"></i>
@@ -29,7 +30,7 @@
 
       <div class="sidebar_menu">
         <div class="logo">
-          <a href="#">Mainu Photography</a>
+          <a href="#home">Mainu Photography</a>
         </div>
 
         <div class="btn_two">
@@ -41,32 +42,36 @@
         <div class="menu">
           <ul>
             <li>
-              <i class="fa-solid fa-image"></i>
-              <a href="#">Gallery</a>
+              <i class="fa-solid fa-house"></i>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <a href="#">Shortcuts</a>
+              <i class="fa-solid fa-image"></i>
+              <a href="#gallery">Gallery</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-camera"></i>
+              <a href="#services">Services</a>
             </li>
             <li>
               <i class="fa-solid fa-photo-film"></i>
-              <a href="#">Exhibits</a>
+              <a href="#exhibits">Exhibits</a>
             </li>
             <li>
               <i class="fa-solid fa-calendar-days"></i>
-              <a href="#">Events</a>
+              <a href="#events">Events</a>
             </li>
             <li>
               <i class="fa-solid fa-store"></i>
-              <a href="#">Store</a>
+              <a href="#store">Store</a>
             </li>
             <li>
               <i class="fa-solid fa-phone"></i>
-              <a href="#">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
             <li>
               <i class="fa-regular fa-comments"></i>
-              <a href="#">Feedback</a>
+              <a href="#feedback">Feedback</a>
             </li>
           </ul>
         </div>
@@ -79,6 +84,69 @@
             <a href="#"><i class="fa-brands fa-youtube"></i></a>
           </ul>
         </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="content_area">
+        
+        <!-- Section: Home -->
+        <section id="home" class="section hero_section">
+          <div class="hero_content">
+            <h1 class="hero_title">MAINU PHOTOGRAPHY</h1>
+            <p class="hero_subtitle">Capturing light, emotion, and stories through the lens.</p>
+            <a href="#gallery" class="cta_btn">Explore Gallery</a>
+          </div>
+        </section>
+
+        <!-- Section: Gallery -->
+        <section id="gallery" class="section">
+          <h2 class="section_title">Gallery</h2>
+          <div class="section_desc">A curated collection of captured moments.</div>
+          <!-- Gallery UI will go here -->
+        </section>
+
+        <!-- Section: Services -->
+        <section id="services" class="section">
+          <h2 class="section_title">Services</h2>
+          <div class="section_desc">Professional photography services tailored to your needs.</div>
+          <!-- Services UI will go here -->
+        </section>
+
+        <!-- Section: Exhibits -->
+        <section id="exhibits" class="section">
+          <h2 class="section_title">Exhibits</h2>
+          <div class="section_desc">Featured series and public exhibitions.</div>
+          <!-- Exhibits UI will go here -->
+        </section>
+
+        <!-- Section: Events -->
+        <section id="events" class="section">
+          <h2 class="section_title">Events</h2>
+          <div class="section_desc">Upcoming workshops, galleries, and photowalks.</div>
+          <!-- Events UI will go here -->
+        </section>
+
+        <!-- Section: Store -->
+        <section id="store" class="section">
+          <h2 class="section_title">Print Store</h2>
+          <div class="section_desc">Bring gallery-quality prints into your home.</div>
+          <!-- Store UI will go here -->
+        </section>
+
+        <!-- Section: Contact -->
+        <section id="contact" class="section">
+          <h2 class="section_title">Contact & Booking</h2>
+          <div class="section_desc">Let's collaborate on your next project.</div>
+          <!-- Contact UI will go here -->
+        </section>
+
+        <!-- Section: Feedback -->
+        <section id="feedback" class="section">
+          <h2 class="section_title">Feedback Guestbook</h2>
+          <div class="section_desc">Read thoughts from clients or share your own experience.</div>
+          <!-- Feedback UI will go here -->
+        </section>
+
       </div>
     </div>
   </body>
