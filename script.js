@@ -408,6 +408,93 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Exhibits Sub-Galleries ---
+    const exhibitCards = document.querySelectorAll('.exhibit_card');
+    const exhibitModal = document.getElementById('exhibit_modal');
+    const exhibitModalClose = document.querySelector('.exhibit_modal_close');
+    const exhibitModalTitle = document.getElementById('exhibit_modal_title');
+    const exhibitModalDesc = document.getElementById('exhibit_modal_desc');
+    const exhibitModalGrid = document.getElementById('exhibit_modal_grid');
+
+    const exhibitPhotos = {
+        "Neon Reflections": [
+            { src: "gallery_street.png", title: "Cyber Tokyo Night", category: "Street" },
+            { src: "gallery_architecture.png", title: "Geometric Neon", category: "Street" },
+            { src: "gallery_portrait.png", title: "Reflected Glow", category: "Street" },
+            { src: "gallery_nature.png", title: "Urban Mist", category: "Street" }
+        ],
+        "Silence of the Pines": [
+            { src: "gallery_nature.png", title: "Misty Sunrise", category: "Nature" },
+            { src: "gallery_architecture.png", title: "Mountain Cabin", category: "Nature" },
+            { src: "gallery_portrait.png", title: "Solitude in Woods", category: "Nature" },
+            { src: "gallery_street.png", title: "Snowy Pine Trail", category: "Nature" }
+        ]
+    };
+
+    exhibitCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const title = card.querySelector('h3').textContent.trim();
+            const desc = card.querySelector('p').textContent.trim();
+            const photos = exhibitPhotos[title] || [];
+
+            if (!exhibitModal) return;
+
+            exhibitModalTitle.textContent = title;
+            exhibitModalDesc.textContent = desc;
+            exhibitModalGrid.innerHTML = '';
+
+            photos.forEach((photo, idx) => {
+                const item = document.createElement('div');
+                item.className = 'exhibit_modal_item';
+                item.innerHTML = `<img src="${photo.src}" alt="${photo.title}">`;
+                
+                // Clicking an image in the exhibit modal opens the Lightbox
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent closing exhibit modal
+
+                    // Setup lightbox values
+                    currentImages = photos.map(ph => {
+                        // Create a temporary mock node structure for the showImage function
+                        const mockItem = document.createElement('div');
+                        mockItem.innerHTML = `
+                            <img src="${ph.src}">
+                            <h3>${ph.title}</h3>
+                            <span class="category_tag">${ph.category}</span>
+                        `;
+                        return mockItem;
+                    });
+                    currentIndex = idx;
+
+                    showImage(currentImages[currentIndex]);
+                    lightbox.classList.add('show');
+                    // Keep the body overflow hidden
+                    document.body.style.overflow = 'hidden';
+                });
+
+                exhibitModalGrid.appendChild(item);
+            });
+
+            exhibitModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeExhibitModal = () => {
+        exhibitModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    };
+
+    if (exhibitModalClose) {
+        exhibitModalClose.addEventListener('click', closeExhibitModal);
+    }
+    if (exhibitModal) {
+        exhibitModal.addEventListener('click', (e) => {
+            if (e.target === exhibitModal) {
+                closeExhibitModal();
+            }
+        });
+    }
+
     // Initial Load
     loadReviews();
 });
